@@ -18,3 +18,13 @@ C:\Users\Григорий\Desktop\резерв\Sydoky\Sydoky\obj\Debug\Sydoky.cs
 C:\Users\Григорий\Desktop\резерв\Sydoky\Sydoky\obj\Debug\Sydoky.csproj.CoreCompileInputs.cache
 C:\Users\Григорий\Desktop\резерв\Sydoky\Sydoky\obj\Debug\Sydoky.exe
 C:\Users\Григорий\Desktop\резерв\Sydoky\Sydoky\obj\Debug\Sydoky.pdb
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\bin\Debug\Sydoky.exe.config
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\bin\Debug\Sydoky.exe
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\bin\Debug\Sydoky.pdb
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.csprojAssemblyReference.cache
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.Form1.resources
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.Properties.Resources.resources
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.csproj.GenerateResource.cache
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.csproj.CoreCompileInputs.cache
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.exe
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.pdb
