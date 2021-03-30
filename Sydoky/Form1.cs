@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sydoky
-{
+namespace Sydoky {
     public partial class Form1 : Form
     {
         public Form1()
@@ -38,66 +30,76 @@ namespace Sydoky
             }
         }
 
-        //условия отбора
-        static bool sCondition(int k, int[] arg, int n, bool[] even, bool[] odd, bool d)
+        // Условия отбора
+        static bool sCondition(int k, int[] arg, int n, bool[] even, bool[] odd, int[] figures, bool d)
         {
-            //горизонталь
+            // Горизонталь
             for (int i = n % 9; i < 81; i += 9){
                 if (k == arg[i])
                     return false;
             }
 
-            //вертикаль
+            // Вертикаль
             for (int i = n / 9 * 9; i < ((n / 9) + 1) * 9; i++){
                 if (k == arg[i])
                     return false;
             }
 
-            //квадраты
-            int z = 0;
-            if (n < 3 || (n > 8 && n < 12) || (n > 17 && n < 21))
-                z = 0;
-            if ((n > 2 && n < 6) || (n > 11 && n < 15) || (n > 20 && n < 24))
-                z = 3;
-            if ((n > 5 && n < 9) || (n > 14 && n < 18) || (n > 23 && n < 27))
-                z = 6;
+            
+            // Фигуры
+            for(int i = 0; i < 81; i++) {
+                if(k == arg[i] && figures[i] == figures[n]) {
+                    return false;
+                }
+            }
+            //    // Квадраты
+            //    int z = 0;
+            //    if (n < 3 || (n > 8 && n < 12) || (n > 17 && n < 21))
+            //        z = 0;
+            //    if ((n > 2 && n < 6) || (n > 11 && n < 15) || (n > 20 && n < 24))
+            //        z = 3;
+            //    if ((n > 5 && n < 9) || (n > 14 && n < 18) || (n > 23 && n < 27))
+            //        z = 6;
 
-            if ((n > 26 && n < 30) || (n > 35 && n < 39) || (n > 44 && n < 48))
-                z = 27;
-            if ((n > 29 && n < 33) || (n > 38 && n < 42) || (n > 47 && n < 51))
-                z = 30;
-            if ((n > 32 && n < 36) || (n > 41 && n < 45) || (n > 50 && n < 54))
-                z = 33;
+            //    if ((n > 26 && n < 30) || (n > 35 && n < 39) || (n > 44 && n < 48))
+            //        z = 27;
+            //    if ((n > 29 && n < 33) || (n > 38 && n < 42) || (n > 47 && n < 51))
+            //        z = 30;
+            //    if ((n > 32 && n < 36) || (n > 41 && n < 45) || (n > 50 && n < 54))
+            //        z = 33;
 
-            if ((n > 53 && n < 57) || (n > 62 && n < 66) || (n > 71 && n < 75))
-                z = 54;
-            if ((n > 56 && n < 60) || (n > 65 && n < 69) || (n > 74 && n < 78))
-                z = 57;
-            if ((n > 59 && n < 63) || (n > 68 && n < 72) || (n > 77 && n < 81))
-                z = 60;
+            //    if ((n > 53 && n < 57) || (n > 62 && n < 66) || (n > 71 && n < 75))
+            //        z = 54;
+            //    if ((n > 56 && n < 60) || (n > 65 && n < 69) || (n > 74 && n < 78))
+            //        z = 57;
+            //    if ((n > 59 && n < 63) || (n > 68 && n < 72) || (n > 77 && n < 81))
+            //        z = 60;
 
-            for (int i = z; i < z + 3; i++)
-                for (int j = 0; j < 27; j += 9)
-                    if (k == arg[i + j])
-                        return false;
+            //    for (int i = z; i < z + 3; i++)
+            //        for (int j = 0; j < 27; j += 9)
+            //            if (k == arg[i + j])
+            //                return false;
+            //}
 
-            //четные нечетные
+            
+
+            // Четное
             if (even[n] == true && k % 2 == 1)
                 return false;
-
+            // Нечетное
             if (odd[n] == true && k % 2 == 0)
                 return false;
 
-            //диагонали
+            // Диагонали
             if (d == true)
             {
-                //слева направо
+                // Слева направо
                 if(n % 10 == 0)
                     for(int i = 0; i < 81; i += 10)
                         if (k == arg[i])
                             return false;
 
-                //справа налево
+                // Справа налево
                 if (n % 8 == 0 && n != 80)
                     for (int i = 8; i < 80; i += 8)
                         if (k == arg[i])
@@ -107,10 +109,11 @@ namespace Sydoky
             return true;
         }
 
+        // Обнуление
         private void button2_Click(object sender, EventArgs e)
         {
             Label[] labels = new Label[81];
-            TextBox[] textBoxes = new TextBox[81];
+            TextBox[] textBoxes = new TextBox[181];
             CheckBox[] checkBoxes = new CheckBox[181];
 
             LabelsToMass(labels);
@@ -123,35 +126,33 @@ namespace Sydoky
                 checkBoxes[i].Checked = false;
             }
             for (int i = 100; i < 181; i++) {
+                textBoxes[i].Text = "";
                 checkBoxes[i].Checked = false;
             }
+
 
             checkBox82.Checked = false;
         }
 
-        public void Output(int[] arg, Label[] labels)
+        // Вывод
+        public void Output(int[] outputMass, Label[] labels)
         {
             LabelsToMass(labels);
             for (int i = 0; i < 81; i++) {
-                labels[i].Text = Convert.ToString(arg[i]);
+                labels[i].Text = Convert.ToString(outputMass[i]);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i = 0;
+            int i;
 
             int[] arg = new int[81];
             bool flag = false;
-            //if (CheckMistakes(arg) == false) {
-            //    MessageBox.Show("Введено неверное значение");
-            //    flag = true;
-            //}
-            //else 
 
             Label[] labels = new Label[81];
 
-            TextBox[] textBoxes = new TextBox[81];
+            TextBox[] textBoxes = new TextBox[181];
             InputArgs(arg, textBoxes);
 
             CheckBox[] checkBoxes = new CheckBox[181];
@@ -159,8 +160,12 @@ namespace Sydoky
             bool[] odd = new bool[81];
             InputEvenAndOdd(even, odd, checkBoxes);
 
-
             bool diagonal = checkBox82.Checked;
+
+            int[] figures = new int[81];
+            for (i = 0; i < 81; i++) {
+                    figures[i] = Convert.ToInt32(textBoxes[100 + i].Text);   
+            }
 
             int[] aDone = new int[81];
             for (i = 0; i < 81; i++) {
@@ -180,15 +185,15 @@ namespace Sydoky
 
                 if (aDone[i] != -1){
                     for (int k = aDone[i]; k < 10; k++) {
-                        //нашли подходящее по условию число
-                        if (sCondition(k, arg, i, even, odd, diagonal) == true){
+                        // Нашли подходящее по условию число
+                        if (sCondition(k, arg, i, even, odd, figures, diagonal) == true){
                             arg[i] = k;
                             aDone[i] = k;
                             break;
                         }
 
-                        //не нашли
-                        if (sCondition(k, arg, i, even, odd, diagonal) == false && k == 9) {
+                        // Не нашли
+                        if (sCondition(k, arg, i, even, odd, figures, diagonal) == false && k == 9) {
                             if(i == 0){
                                 MessageBox.Show("Решения нет");
                                 flag = true;
@@ -198,14 +203,13 @@ namespace Sydoky
 
                             i--;
                             
+                            // Вычисляем путь назад
                             while (true) {
-                                if (i > -1){
-                                    if (aDone[i] == -1)
-                                        i--;
-                                    else break;
-                                }
-                                else break;
+                                if (i > -1 && aDone[i] == -1) {
+                                    i--;
+                                } else break;
                             }
+
                             i--;
 
                             break;
@@ -388,6 +392,88 @@ namespace Sydoky
             textboxes[78] = textBox79;
             textboxes[79] = textBox80;
             textboxes[80] = textBox81;
+
+            textboxes[100] = textBox101;
+            textboxes[101] = textBox102;
+            textboxes[102] = textBox103;
+            textboxes[103] = textBox104;
+            textboxes[104] = textBox105;
+            textboxes[105] = textBox106;
+            textboxes[106] = textBox107;
+            textboxes[107] = textBox108;
+            textboxes[108] = textBox109;
+            textboxes[109] = textBox110;
+            textboxes[110] = textBox111;
+            textboxes[111] = textBox112;
+            textboxes[112] = textBox113;
+            textboxes[113] = textBox114;
+            textboxes[114] = textBox115;
+            textboxes[115] = textBox116;
+            textboxes[116] = textBox117;
+            textboxes[117] = textBox118;
+            textboxes[118] = textBox119;
+            textboxes[119] = textBox120;
+            textboxes[120] = textBox121;
+            textboxes[121] = textBox122;
+            textboxes[122] = textBox123;
+            textboxes[123] = textBox124;
+            textboxes[124] = textBox125;
+            textboxes[125] = textBox126;
+            textboxes[126] = textBox127;
+            textboxes[127] = textBox128;
+            textboxes[128] = textBox129;
+            textboxes[129] = textBox130;
+            textboxes[130] = textBox131;
+            textboxes[131] = textBox132;
+            textboxes[132] = textBox133;
+            textboxes[133] = textBox134;
+            textboxes[134] = textBox135;
+            textboxes[135] = textBox136;
+            textboxes[136] = textBox137;
+            textboxes[137] = textBox138;
+            textboxes[138] = textBox139;
+            textboxes[139] = textBox140;
+            textboxes[140] = textBox141;
+            textboxes[141] = textBox142;
+            textboxes[142] = textBox143;
+            textboxes[143] = textBox144;
+            textboxes[144] = textBox145;
+            textboxes[145] = textBox146;
+            textboxes[146] = textBox147;
+            textboxes[147] = textBox148;
+            textboxes[148] = textBox149;
+            textboxes[149] = textBox150;
+            textboxes[150] = textBox151;
+            textboxes[151] = textBox152;
+            textboxes[152] = textBox153;
+            textboxes[153] = textBox154;
+            textboxes[154] = textBox155;
+            textboxes[155] = textBox156;
+            textboxes[156] = textBox157;
+            textboxes[157] = textBox158;
+            textboxes[158] = textBox159;
+            textboxes[159] = textBox160;
+            textboxes[160] = textBox161;
+            textboxes[161] = textBox162;
+            textboxes[162] = textBox163;
+            textboxes[163] = textBox164;
+            textboxes[164] = textBox165;
+            textboxes[165] = textBox166;
+            textboxes[166] = textBox167;
+            textboxes[167] = textBox168;
+            textboxes[168] = textBox169;
+            textboxes[169] = textBox170;
+            textboxes[170] = textBox171;
+            textboxes[171] = textBox172;
+            textboxes[172] = textBox173;
+            textboxes[173] = textBox174;
+            textboxes[174] = textBox175;
+            textboxes[175] = textBox176;
+            textboxes[176] = textBox177;
+            textboxes[177] = textBox178;
+            textboxes[178] = textBox179;
+            textboxes[179] = textBox180;
+            textboxes[180] = textBox181;
         }
 
         public void CheckBoxesToMass(CheckBox[] checkBoxes)
@@ -556,6 +642,5 @@ namespace Sydoky
             checkBoxes[179] = checkBox180;
             checkBoxes[180] = checkBox181;
         }
-
     }
 }
