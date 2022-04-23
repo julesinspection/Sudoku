@@ -20,7 +20,7 @@ namespace Sudoku
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Alg form = new Alg();
+            ResolverForm form = new ResolverForm();
             form.Show();
         }
 
@@ -30,5 +30,10 @@ namespace Sudoku
             form.Show();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddLevel form = new AddLevel();
+            form.Show();
+        }
     }
 }

@@ -28,5 +28,7 @@ C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sudoku.Properties
 C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sudoku.exe
 C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sudoku.pdb
 C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sudoku.Main.resources
-C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.Alg.resources
 C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sudoku.Levels.resources
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sudoku.LevelForms.FirstLevel.resources
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sydoky.ResolverForm.resources
+C:\Users\Григорий\source\repos\Sudoku\Sydoky\obj\Debug\Sudoku.AddLevel.resources

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sudoku.LevelForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace Sudoku
         public Levels()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FirstLevel form = new FirstLevel();
+            form.Show();
         }
     }
 }

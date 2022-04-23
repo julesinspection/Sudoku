@@ -61,7 +61,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLevel.Designer.cs">
+      <DependentUpon>AddLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data.cs" />
+    <Compile Include="LevelForms\FirstLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LevelForms\FirstLevel.Designer.cs">
+      <DependentUpon>FirstLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Levels.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,16 +86,22 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resolver.cs">
+    <Compile Include="ResolverForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Resolver.Designer.cs">
-      <DependentUpon>Resolver.cs</DependentUpon>
+    <Compile Include="ResolverForm.Designer.cs">
+      <DependentUpon>ResolverForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Resolver.resx">
-      <DependentUpon>Resolver.cs</DependentUpon>
+    <EmbeddedResource Include="AddLevel.resx">
+      <DependentUpon>AddLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LevelForms\FirstLevel.resx">
+      <DependentUpon>FirstLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResolverForm.resx">
+      <DependentUpon>ResolverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Levels.resx">
       <DependentUpon>Levels.cs</DependentUpon>
